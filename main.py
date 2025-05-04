@@ -42,15 +42,19 @@ def decryption(text, key):
 	return plainText
 	
 def vigenere(text, key, mode):
+	if not text or not key:
+		return "Error: Text and key cannot be empty!"
+	if not key.isalpha():
+		return "Error: Key must contain only alphabetic characters!"
 	if mode == "encryption":
 		return encryption(text, key)
 	elif mode == "decryption":
 		return decryption(text, key)
 	else:
-		return "Enter the valid mode!"
+		return "Mode must be 'encryption' or 'decryption'."
 
 	
 text = input("text : ")
-key = input("key : ")
+key = input("key : ").strip()
 mode = input("mode (encryption/decryption) : ").lower()
 print(vigenere(text,key,mode))
