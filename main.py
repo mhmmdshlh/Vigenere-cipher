@@ -34,7 +34,7 @@ def decryption(text, key):
 		elif char in lowercase:
 			idxChar = lowercase.index(char)
 			idxKey = lowercase.index(key[i].lower())
-			idxCipher = (idxChar + idxKey) % len(lowercase)
+			idxCipher = (idxChar - idxKey) % len(lowercase)
 			plainText += lowercase[idxCipher]
 			i = (i + 1) % len(key)
 		else:
